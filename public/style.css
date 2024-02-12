@@ -6,9 +6,19 @@
 
 }
 
-header{
+button {
+    background: white;
+    border-radius: 10%;
+    margin: 2em;
+    padding: 0.5em;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Schaduw van de knop */
+
 }
 
+
+header{
+}
 
 header, .meet-the-squad, .filters {
     display: flex;
@@ -26,22 +36,21 @@ header, .meet-the-squad, .filters {
 }
 
  .content {
-     display: grid;
-     grid-template-areas: "content"
- "content"
- "content"
- "content"
- "content"
- "content"
- "content"
- "content"
- "content"
- "content";
-     margin: 2em;
-     place-items: center;
-     gap: 1em;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
  }
 
  .squadpage{
 grid-area: content;
+ }
+
+ article {
+     position: relative;
+     background: grey;
+     border-radius: 10%;
+     padding: 7em;
+     margin: 1em;
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Schaduw van de knop */
+
  }
