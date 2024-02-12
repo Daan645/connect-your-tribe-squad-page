@@ -1,0 +1,47 @@
+:root{
+
+}
+
+*{
+
+}
+
+header{
+}
+
+
+header, .meet-the-squad, .filters {
+    display: flex;
+    justify-content: center;
+    /* Voeg hier andere CSS-styling toe die je wilt toepassen op zowel header als elementen met de klasse .meet-the-squad */
+}
+
+.meet-the-squad {
+
+}
+
+ .filters-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+ .content {
+     display: grid;
+     grid-template-areas: "content"
+ "content"
+ "content"
+ "content"
+ "content"
+ "content"
+ "content"
+ "content"
+ "content"
+ "content";
+     margin: 2em;
+     place-items: center;
+     gap: 1em;
+ }
+
+ .squadpage{
+grid-area: content;
+ }
