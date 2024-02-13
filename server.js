@@ -10,8 +10,12 @@ const apiUrl = 'https://fdnd.directus.app/items'
 // Haal alle squads uit de WHOIS API op
 const squadData = await fetchJson(apiUrl + '/squad')
 
+const persoonlijkeData = await fetchJson('https://fdnd.directus.app/items/person/13')
+
+
 // Maak een nieuwe express app aan
 const app = express()
+
 
 // Stel ejs in als template engine
 app.set('view engine', 'ejs')
@@ -30,8 +34,9 @@ app.get('/', function (request, response) {
     // Je zou dat hier kunnen filteren, sorteren, of zelfs aanpassen, voordat je het doorgeeft aan de view
 
     // Render index.ejs uit de views map en geef de opgehaalde data mee als variabele, genaamd persons
-    response.render('index', {persons: apiData.data, squads: squadData.data})
+    response.render('index', {persons: apiData.data, squads: squadData.data, persoonlijkeData: persoonlijkeData})
   })
+
 })
 
 // Maak een POST route voor de index

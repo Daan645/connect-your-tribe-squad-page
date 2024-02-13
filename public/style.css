@@ -35,22 +35,40 @@ header, .meet-the-squad, .filters {
     justify-content: space-between;
 }
 
- .content {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
- }
+.content-container {
 
- .squadpage{
-grid-area: content;
- }
+}
+.content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: minmax(200px, auto);
+    grid-gap: 5em; /* Optioneel: voeg ruimte toe tussen de kolommen */
+    padding: 0; /* Reset de padding */
 
- article {
-     position: relative;
-     background: grey;
-     border-radius: 10%;
-     padding: 7em;
-     margin: 1em;
-     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Schaduw van de knop */
+.squadpage {
+display: flex;
+    justify-content: center;
+    list-style-type: none;
+    position: relative;
+    background: grey;
+    border-radius: 10%;
+    height: 17em; /* Verminder de padding */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
 
- }
+}
+/*@media screen and (min-width: 1200px){*/
+/*    .squadpage {*/
+/*        height: 20em;*/
+/*    }*/
+/*}*/
+
+/*@media screen and (min-width: 1500px){*/
+/*    .squadpage {*/
+/*        height: 25em;*/
+/*    }*/
+/*}*/
+
+
+
+
