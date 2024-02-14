@@ -1,6 +1,7 @@
 <%- include('./partials/head') %>
 <header>
     <h1>Squad page</h1>
+    <a href="/app">Game</a>
 </header>
 <main>
     <!--meet the squad-->
@@ -21,11 +22,9 @@
     <ul class="content">
 
 
-        <li class="squadpage">
-            <h1><% persoonlijkeData.data.name %></h1>
-        </li>
-
-
+            <% persons.forEach(person => { %>
+            <li class="squadpage"><h1><%= person.name %></h1></li>
+            <% }) %>
     </ul>
     </div>
 </main>
