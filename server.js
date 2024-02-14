@@ -66,6 +66,15 @@ app.listen(app.get('port'), function () {
 
 // Custom routes
 //game
+// Custom routes
+//game
 app.get('/app', function(req, res) {
-  res.render('app');
+  fetchJson(apiUrl + '/person?filter={"avatar":{"_nempty":""}}').then((apiData) => {
+    // apiData bevat gegevens van alle personen uit alle squads
+    // Je zou dat hier kunnen filteren, sorteren, of zelfs aanpassen, voordat je het doorgeeft aan de view
+
+    // Render index.ejs uit de views map en geef de opgehaalde data mee als variabele, genaamd persons
+    res.render('app', {persons: apiData.data, squads: squadData.data})
+  })
 });
+

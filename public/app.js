@@ -8,13 +8,24 @@ let isGoingRight = true;
 let direction = 1;
 const resultDisplay = document.querySelector('.results');
 
+var personsData = JSON.parse(document.getElementById('personsData').value);
+
+// voegt een eventlistener toe aan het document en wacht tot alle elementen etc zijn ingeladen
+document.addEventListener('DOMContentLoaded', function() {
+    // pakt de data uit het inputveld van html en zet deze om in een js object onder de variabele personData
+    var personsData = JSON.parse(document.getElementById('personsData').value);
+});
+
+
 
 // zolang i kleiner is dan width * width (250) doe i + 1
 for (let i = 0; i < width * width; i++) {
     // maak een div aan
     const square = document.createElement('div');
+
     // koppelt square met de klasse grid
     grid.appendChild(square);
+
 }
 // alle items in grid div worden omgezet in een array (alle divs gaan in een array)
 const squares = Array.from(document.querySelectorAll('.grid div'));
@@ -33,13 +44,16 @@ function draw() {
     for (let i = 0; i < alienInvaders.length; i++) {
         // als het niet in de array aliensremoved zit kan de class invader worden toegevoegd
         if (!aliensRemoved.includes(i)) {
+            // waar squares van toepassing is geeft hij een html img mee waarin de waarde wordt geloopt uit de database
+            squares[alienInvaders[i]].innerHTML= "<img src='" + personsData[i].avatar + "'>";
             // stopt alle waardes van alienInvaders in squares en geeft de divs class invader
             squares[alienInvaders[i]].classList.add('invader');
+
         }
 
     }
 }
-
+console.log(personsData)
 draw()
 
 // geef square met waarde van currenShooterIndex de class shooter
@@ -49,6 +63,8 @@ squares[currentShooterIndex].classList.add('shooter');
 function remove() {
     // loopt zolang als alienInvaders array lang is
     for (let i = 0; i < alienInvaders.length; i++) {
+        // kijkt naar de waarde van squares en maakt daar de html weer leeg waar squares niet is
+        squares[alienInvaders[i]].innerHTML= "";
         // kijkt in squeres op de waardes van alienInvaders en verwijdert daar class invader
         squares[alienInvaders[i]].classList.remove('invader');
     }
