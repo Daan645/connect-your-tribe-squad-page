@@ -1,3 +1,4 @@
+// 1. opzetten van de webserver
 // Importeer het npm pakket express uit de node_modules map
 import express from 'express'
 
@@ -16,6 +17,7 @@ console.log(persoonlijkeData)
 // Maak een nieuwe express app aan
 const app = express()
 
+// 2. http requests
 
 // Stel ejs in als template engine
 app.set('view engine', 'ejs')
@@ -25,14 +27,19 @@ app.set('views', './views')
 
 // Gebruik de map 'public' voor statische resources, zoals stylesheets, afbeeldingen en client-side JavaScript
 app.use(express.static('public'))
+// einde opzetten van server
+
+
 
 // Maak een GET route voor de index
+// vraagt iets op van de server wanneer localhost/
 app.get('/', function (request, response) {
   // Haal alle personen uit de WHOIS API op
+  // fect de json van de whoisapi
   fetchJson(apiUrl + '/person/?filter={"squad_id":3}').then((apiData) => {
     // apiData bevat gegevens van alle personen uit alle squads
     // Je zou dat hier kunnen filteren, sorteren, of zelfs aanpassen, voordat je het doorgeeft aan de view
-
+    // zet de data en index in elkaar en geef deze door aan de browser
     // Render index.ejs uit de views map en geef de opgehaalde data mee als variabele, genaamd persons
     response.render('index', {persons: apiData.data, squads: squadData.data})
   })
@@ -53,6 +60,8 @@ app.get('/person/:id', function (request, response) {
     response.render('person', {person: apiData.data, squads: squadData.data})
   })
 })
+
+// 3. start de webserver
 
 // Stel het poortnummer in waar express op moet gaan luisteren
 app.set('port', process.env.PORT || 8000)

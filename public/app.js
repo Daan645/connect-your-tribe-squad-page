@@ -59,6 +59,7 @@ draw()
 // geef square met waarde van currenShooterIndex de class shooter
 squares[currentShooterIndex].classList.add('shooter');
 
+
 // verwijdert de invaders
 function remove() {
     // loopt zolang als alienInvaders array lang is
@@ -90,6 +91,7 @@ function moveShooter(e) {
     }
     // verander de class van een andere square in shooter zodat het lijkt of deze beweegt
     squares[currentShooterIndex].classList.add('shooter');
+
 }
 
 // activeer move shooter wanneer je op een toets drukt
@@ -164,6 +166,8 @@ function shoot(e) {
             squares[currentLaserIndex].classList.remove('invader');
             // voeg de class boom toe
             squares[currentLaserIndex].classList.add('boom');
+            squares[currentLaserIndex].innerHTML=("<img src='img/Explosie.png'>")
+
             // verwijder boom class na 300ms
             setTimeout(()=> squares[currentLaserIndex].classList.remove('boom'), 300);
             // reset laserID

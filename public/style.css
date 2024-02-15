@@ -1,9 +1,43 @@
-:root{
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap');
 
+/*root settings*/
+:root{
+    --main-color: #ff7e5f;
+    --secondary-color: #feb47b;
+    --tertairy-color: #2b7a78;
+    --fourth-color: #def2f1;
+    --light-color: #feffff;
+    --gradient-main: linear-gradient(to right, var(--main-color), var(--secondary-color));
+    --gradient-secondary: linear-gradient(to right, var(--secondary-color), var(--main-color));
+
+    /*font*/
+    /*colors*/
+    --font-color-light: #ffff;
+    /*size*/
+    --font-size-h1: 2em;
+    --font-size-h2: 1.5em;
+    --font-size-text: 1.2em;
+    --font-size-small: 1em;
+    /*family*/
+    --font-family-normal: 'Rubik', sans-serif;
+    --font-family-bold: 'Rubik', sans-serif, bold;
 }
 
 *{
 
+}
+
+body {
+    background: var(--gradient-main);
+}
+
+h1, h2 , p, a {
+    color: var(--light-color);
+    font-family: var(--font-family-normal);
+}
+
+h1, h2, li {
+    text-shadow: 3px 4px 2px rgba(0, 0, 0, 0.5);
 }
 
 button {
@@ -16,8 +50,68 @@ button {
 
 }
 
+.custom-shape-divider-top-1707997262 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.tekst {
+    position: relative;
+}
 
 header{
+    border-radius: 10px;
+}
+
+.header-content {
+    margin-top: 3em;
+    display: flex;
+}
+
+.custom-shape-divider-top-1707998984 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+
+}
+
+.custom-shape-divider-top-1707998984 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 81px;
+}
+
+.custom-shape-divider-top-1707998984 .shape-fill {
+    fill: #FFFFFF;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+}
+
+li {
+    list-style-type: none;
+    margin: 1em;
+    transition: transform 0.4s ease-out;
+}
+
+li:hover {
+    transform: scale(1.2) translateY(-0.5em);
+
+}
+
+a {
+
+    text-decoration: none;
 }
 
 header, .meet-the-squad, .filters {
@@ -35,6 +129,18 @@ header, .meet-the-squad, .filters {
     justify-content: space-between;
 }
 
+.horizontal-line {
+    border: none; /* Verwijder de standaard rand van de <hr> */
+    background-color: white; /* Stel de achtergrondkleur in op wit */
+    border-radius: 10px;
+    height: 3px; /* Hoogte van de lijn */
+    width: 90%; /* Breedte van de lijn, in dit geval 90% van de container */
+    margin: 0 auto; /* Plaats de lijn in het midden van de container */
+    box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 1em;
+}
+
+
 .content-container {
 
 }
@@ -50,10 +156,10 @@ display: flex;
     justify-content: center;
     list-style-type: none;
     position: relative;
-    background: grey;
-    border-radius: 10%;
+    background: #FFFFFF;
+    border-radius: 10px;
     height: 17em; /* Verminder de padding */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 }
