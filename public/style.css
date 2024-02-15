@@ -36,8 +36,17 @@ h1, h2 , p, a {
     font-family: var(--font-family-normal);
 }
 
-h1, h2, li {
+h2, li {
     text-shadow: 3px 4px 2px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  color: var(--main-color);
+}
+
+a {
+    font-size: 1.5em;
+    text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 button {
@@ -67,10 +76,45 @@ header{
     border-radius: 10px;
 }
 
+header a{
+    margin-top: 3em;
+    transition: transform 0.5s ease;
+
+}
+
+header a:hover {
+    transform: scale(1.2) translateY(-0.5em);
+}
+
 .header-content {
     margin-top: 3em;
     display: flex;
 }
+
+.header-block {
+    margin: 2em;
+    background-color: var(--light-color);
+    border-radius: 10px;
+    padding: 1em;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Schaduw van de knop */
+    animation: header-block-animation 5s ease-out infinite;
+    clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+}
+
+@keyframes header-block-animation {
+    0% {
+        clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+    }
+
+    25%{
+        clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
+    }
+}
+
+
+
+
+
 
 .custom-shape-divider-top-1707998984 {
     position: absolute;
@@ -105,9 +149,10 @@ li {
 }
 
 li:hover {
-    transform: scale(1.2) translateY(-0.5em);
-
+    transform: scale(1.2) translateY(-0.5em);npm
 }
+
+
 
 a {
 
