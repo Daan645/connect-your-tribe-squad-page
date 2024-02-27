@@ -265,10 +265,6 @@ display: flex;
     margin: 0 2em
 }
 
-.person-card-send-message {
-
-}
-
 .persons-card-messages {
     display: none;
     background: #FFFFFF;
@@ -282,13 +278,41 @@ display: flex;
     padding: 10px;
 }
 
+#personsCardMessagesDeactivate {
+    margin: 0;
+    text-align: left;
+}
+
+.persons-card img {
+    max-width: 35em;
+}
+
 .persons-card-messages-active {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     list-style-type: none;
+    animation: pop-up ease-in 0.6s;
 }
+
+@keyframes pop-up {
+    0% {
+        scale: 0;
+    }
+
+    75% {
+        scale: 1.20;
+    }
+
+    100% {
+        scale: 1;
+    }
+
+}
+
+
+
 
 .persons-card-messages textarea{
     width: 40em;

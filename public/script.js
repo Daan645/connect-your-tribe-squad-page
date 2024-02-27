@@ -3,14 +3,21 @@ const persons = document.querySelector('.persons-card');
 
 let personsMessageCheck = false;
 
-
-document.getElementById('personsCardFlip').addEventListener('click', function() {
+// wanneer er op de knop berichten wordt geklikt
+document.getElementById('personsCardMessagesActivate').addEventListener('click', function() {
     if (personsMessageCheck === false) {
 messagesActive();
     } else {
         messageNonActive();
     }
 });
+
+// wanneer erop sluit wordt geklikt in berichten
+document.getElementById('personsCardMessagesDeactivate').addEventListener('click', function() {
+    messageNonActive();
+});
+
+
 
 
 // laat person message verschijnen op het beeld

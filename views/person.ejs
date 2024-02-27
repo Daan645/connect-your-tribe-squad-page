@@ -18,10 +18,11 @@
         <p>Squad: <%= person.squad_id %>
     </section>
     <p><%= person.bio %></p>
-    <button id="personsCardFlip">Berichten</button>
+    <button id="personsCardMessagesActivate">Berichten</button>
 </article>
 
 <article class="persons-card-messages">
+    <button id="personsCardMessagesDeactivate">❌Sluit</button>
     <h2>berichten</h2>
     <ul>
         <% messages.forEach(message => { %>
