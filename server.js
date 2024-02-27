@@ -17,6 +17,8 @@ console.log(persoonlijkeData)
 // Maak een nieuwe express app aan
 const app = express()
 
+const messages = []
+
 // 2. http requests
 
 // Stel ejs in als template engine
@@ -26,7 +28,10 @@ app.set('view engine', 'ejs')
 app.set('views', './views')
 
 // Gebruik de map 'public' voor statische resources, zoals stylesheets, afbeeldingen en client-side JavaScript
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
+
+
 // einde opzetten van server
 
 
@@ -41,14 +46,18 @@ app.get('/', function (request, response) {
     // Je zou dat hier kunnen filteren, sorteren, of zelfs aanpassen, voordat je het doorgeeft aan de view
     // zet de data en index in elkaar en geef deze door aan de browser
     // Render index.ejs uit de views map en geef de opgehaalde data mee als variabele, genaamd persons
-    response.render('index', {persons: apiData.data, squads: squadData.data})
+    response.render('index', {persons: apiData.data, squads: squadData.data, messages: messages})
+  console.log(messages)
   })
 
 })
 
 // Maak een POST route voor de index
 app.post('/', function (request, response) {
-  // Er is nog geen afhandeling van POST, redirect naar GET op /
+  // Er is nog geen afhandeling van POST, redirect naar GET op
+  console.log(request)
+  messages.push(request.body.bericht)
+  // messages.push(request.body.bericht)
   response.redirect(303, '/')
 })
 

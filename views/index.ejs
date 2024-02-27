@@ -10,23 +10,29 @@
         <div class="filters-container">
             <button id="group">Group</button>
             <button id="filter">Filter</button>
-
-
-
+        </div>
     </div>
-
-    </div>
-
-
     <!--content-->
     <div class="content-container">
-    <ul class="content">
-
+        <ul class="content">
 
             <% persons.forEach(person => { %>
-            <li class="squadpage"><h1><%= person.name %></h1></li>
+                <li class="squadpage"><a href="./person/<%= person.id %>"><%= person.name %></a></li>
             <% }) %>
-    </ul>
+        </ul>
     </div>
+
+    <h1>berichten</h1>
+    <ul>
+<% messages.forEach(message => { %>
+    <li><%= message %></li>
+    <% }) %>
+    </ul>
+    <form method="POST" action="/">
+        <label>verstuur een bericht
+            <textarea required name="bericht"></textarea>
+        </label>
+        <button type="submit">Verzend</button>
+    </form>
 </main>
 <%- include('./partials/foot') %>
