@@ -1,10 +1,42 @@
-<%- include('./partials/head') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" defer></script>
+    <title>Squadpage <%= person.name %></title>
+</head>
+<body>
 
-<a href="/">Back</a>
-<h2><%= person.name %></h2>
 
-<p>Squad: <%= person.squad_id %>
+<article class="persons-card">
+    <a href="/">Back</a>
+    <img src="<%= person.avatar %>">
+    <section class="persons-name-squad">
+        <h2><%= person.name %></h2>
+        <p>Squad: <%= person.squad_id %>
+    </section>
+    <p><%= person.bio %></p>
+    <button id="personsCardFlip">Berichten</button>
+</article>
 
+<article class="persons-card-messages">
+    <h2>berichten</h2>
+    <ul>
+        <% messages.forEach(message => { %>
+            <li><%= message %></li>
+        <% }) %>
+    </ul>
+    <form method="POST" action="/person/:id">
+        <label>verstuur een bericht</label>
+            <textarea required name="bericht"></textarea>
+
+        <button type="submit">Verzend</button>
+    </form>
+    </main>
+    <%- include('./partials/foot') %>
+</article>
 
 
 <%- include('./partials/foot') %>

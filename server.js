@@ -46,7 +46,7 @@ app.get('/', function (request, response) {
     // Je zou dat hier kunnen filteren, sorteren, of zelfs aanpassen, voordat je het doorgeeft aan de view
     // zet de data en index in elkaar en geef deze door aan de browser
     // Render index.ejs uit de views map en geef de opgehaalde data mee als variabele, genaamd persons
-    response.render('index', {persons: apiData.data, squads: squadData.data, messages: messages})
+    response.render('index', {persons: apiData.data, squads: squadData.data})
   console.log(messages)
   })
 
@@ -55,8 +55,14 @@ app.get('/', function (request, response) {
 // Maak een POST route voor de index
 app.post('/', function (request, response) {
   // Er is nog geen afhandeling van POST, redirect naar GET op
+  // messages.push(request.body.bericht)
+  response.redirect(303, '/')
+})
+
+app.post('/person/:id', function (request, response) {
+  // Er is nog geen afhandeling van POST, redirect naar GET op
   console.log(request)
-  messages.push(request.body.bericht)
+  // messages.push(request.body.bericht)
   // messages.push(request.body.bericht)
   response.redirect(303, '/')
 })
@@ -66,7 +72,7 @@ app.get('/person/:id', function (request, response) {
   // Gebruik de request parameter id en haal de juiste persoon uit de WHOIS API op
   fetchJson(apiUrl + '/person/' + request.params.id).then((apiData) => {
     // Render person.ejs uit de views map en geef de opgehaalde data mee als variable, genaamd person
-    response.render('person', {person: apiData.data, squads: squadData.data})
+    response.render('person', {person: apiData.data, squads: squadData.data, messages: messages})
   })
 })
 

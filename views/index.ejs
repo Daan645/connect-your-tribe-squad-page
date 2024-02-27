@@ -21,18 +21,5 @@
             <% }) %>
         </ul>
     </div>
-
-    <h1>berichten</h1>
-    <ul>
-<% messages.forEach(message => { %>
-    <li><%= message %></li>
-    <% }) %>
-    </ul>
-    <form method="POST" action="/">
-        <label>verstuur een bericht
-            <textarea required name="bericht"></textarea>
-        </label>
-        <button type="submit">Verzend</button>
-    </form>
 </main>
 <%- include('./partials/foot') %>
